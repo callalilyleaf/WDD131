@@ -20,6 +20,7 @@ hr { /* hr element is treated as border*/
     color: black;
     border: 1px solid rgb(33, 33, 33);
     border-radius: 15%;
+    transition: 0.5s;
 }
 section {
   padding: 20px;
@@ -27,13 +28,11 @@ section {
   margin: 1em;
   border: 1px solid #ccc;
 }
-#nav-link {
-    display: none; /*In mobile size, the nav bar won't be displayed */
-}
 nav a {
     padding: 20px;
     color: black;
     text-decoration: none;
+    transition: 0.5s;
 }
 nav a:hover {
     text-decoration: none;
@@ -54,10 +53,18 @@ nav a:hover {
 footer {
     text-align: center;
 }
-
-#nav-link.open {
-    display: block;
+#nav-link {
+    /* display: none; In mobile size, the nav bar won't be displayed */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s;
     text-align: center;
+}
+#nav-link.open {
+    /* display: block; */
+    max-height: 300px;
+    text-align: center;
+    transition: 1s ease-in-out;
 }
 
 .open .bar1 {
