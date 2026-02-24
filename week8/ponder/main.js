@@ -22,13 +22,24 @@ const aCourse = {
     { sectionNum: 2, roomNum: 'STC 347', enrolled: 28, days: 'TTh', instructor: 'Sis A'}
     ],
 
-    enrollStudent: function (sectionNum) {
+    addStudent: function (sectionNum) {
         // find the right section...Array.findIndex will work here
         const sectionIndex = this.sections.findIndex(
             (section) => section.sectionNum == sectionNum
         );
         if (sectionIndex >= 0) {
             this.sections[sectionIndex].enrolled++;
+            renderSections(this.sections);
+        }
+      },
+
+    removeStudent: function (sectionNum) {
+        // find the right section...Array.findIndex will work here
+        const sectionIndex = this.sections.findIndex(
+            (section) => section.sectionNum == sectionNum
+        );
+        if (sectionIndex >= 0) {
+            this.sections[sectionIndex].enrolled--;
             renderSections(this.sections);
         }
       }
@@ -45,13 +56,24 @@ function sectionTemplate(section) {
 
 function renderSections(sections) {
 const html = sections.map(sectionTemplate);
-document.querySelector("#sections").innerHTML = html.join("");
+document.querySelector("#sections").innerHTML = html.join(""); // join() method concat all the strings into one huge string
 }
 
 renderSections(aCourse.sections);
 
-document.querySelector("#enrollStudent").addEventListener("click", function () {
+document.querySelector("#addStudentBtn").addEventListener("click", function () {
     const sectionNum = document.querySelector("#sectionNumber").value;
-    aCourse.enrollStudent(sectionNum);
+    if (sectionNum <= aCourse.sections.length){
+        aCourse.addStudent(sectionNum);
+    }
+
+});
+
+document.querySelector("#removeStudentBtn").addEventListener("click", function () {
+    const sectionNum = document.querySelector("#sectionNumber").value;
+    if (sectionNum <= aCourse.sections.length){
+        aCourse.removeStudent(sectionNum);
+    }
+
 });
           
