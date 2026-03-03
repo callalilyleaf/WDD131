@@ -1,0 +1,48 @@
+/* 1. The 2x2 Grid Architecture */
+.parentContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px; /* Adds space between the grid cells */
+  height: 90vh;
+  padding: 20px;
+  background-color: #f0f2f5;
+}
+
+/* 2. The Flexbox Card Interior */
+.card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  
+  display: flex;
+  flex-direction: column; /* Stacks title, graph, and button vertically */
+}
+
+.graph-area {
+  /* This allows the graph area to grow and take up the middle space */
+  flex-grow: 1; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e2e8f0;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+/* 3. The "Magic" Button Alignment */
+.exportBtn {
+  /* Acts as a spring pushing the button to the bottom */
+  margin-top: auto; 
+  
+  /* Pushes the button to the end of the cross-axis (the right side) */
+  align-self: flex-end; 
+  
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

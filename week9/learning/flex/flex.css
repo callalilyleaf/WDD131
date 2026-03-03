@@ -1,0 +1,20 @@
+/* default of flex: horizontal */
+.navbar{ 
+    display: flex;
+    flex-direction: row; /* change the value to row-reverse, column, or column-reverse*/
+    justify-content: space-between; /* This pushes the logo left and the links right */
+    
+    
+    /* Aligns items on the Cross Axis (vertical) */
+    /* This ensures the text is vertically centered */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f4f4f9;
+}
+
+/* flex containers can be nested! */
+.nav-links{
+    display: flex; 
+    gap: 20px;
+    list-style: none; /* remove the bullet points*/ 
+}

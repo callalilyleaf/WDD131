@@ -82,6 +82,5 @@ eatFruitBtn.addEventListener("click", () => {
     renderMonster();
 });
 
-
 renderMonster();
 
