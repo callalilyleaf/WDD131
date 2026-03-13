@@ -96,6 +96,7 @@ const hikes = [
       //     <p><span class="rating" role="img" aria-label="1 out of 5">🥾</span></p> --></div>
 
 function search() {
+  document.querySelector("#hike-container").innerHTML = "";
   let hikeSearch = document.querySelector('#search').value.toLowerCase();
 
   let hikeMatch = hikes.filter(function(hike){ // return the hike that matches these conditions
@@ -113,12 +114,14 @@ function search() {
     const mileA = a.distance.split(" ")[0];
     const mileB = b.distance.split(" ")[0];
     return (mileA - mileB); // sort ascendingly
+    // or you can:
+    // hikeMatch.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
   });
 
   renderHike(hikeMatch);
 }
 
-function toHtmlTemplate(hike) {
+function toHtmlTemplate(hike) { // input: each single 'hike'
 
   const buttonsHtml = hike.tags
     .map(tag => `<button>${tag}</button>`)
@@ -127,27 +130,26 @@ function toHtmlTemplate(hike) {
   const bootDifficulty = "🥾".repeat(hike.difficulty) + "▫️".repeat(5 - hike.difficulty);
 
   return (
-    `<div id="hike-container">
-      <div class="hike-card">
+    `<div class="hike-card">
         <div class="hike-content">
           <h2>${hike.name}</h2>
           <div class="hike-tags">
             ${buttonsHtml}
           </div>
           <p>${hike.description}</p>
-          <p><span class="rating" role="img" aria-label="Rating: ${hike.difficulty} out of 5">${bootDifficulty}</span></p> 
+          <p><span class="rating" role="img" aria-label="Rating: ${hike.difficulty} out of 5">Difficulty: ${bootDifficulty}</span></p> 
         </div>
-      </div>
-    </div>`
+      </div>`
   );
 }
 
-function renderHike(hikeHtml) {
+function renderHike(hikeList) {
   let hikeContainer = document.querySelector("#hike-container");
-  let html = toHtmlTemplate(hikeHtml);
+  let html = hikeList.map(toHtmlTemplate).join("");
   hikeContainer.innerHTML += html;
 } 
 
+let input = document.querySelector('input');
 input.addEventListener('keypress', handleEnter);
 function handleEnter(event) {
   if (event.key === 'Enter') {
@@ -156,6 +158,11 @@ function handleEnter(event) {
 }
 
 // main 
+
+// random hike generation
+let randomNum = Math.floor(Math.random() * hikes.length);
+renderHike([hikes[randomNum]]);
+
 let searchBtn = document.querySelector("#searchBtn")
 searchBtn.addEventListener('click', search);
 
