@@ -1,0 +1,93 @@
+/* Mobile */
+
+body{
+    margin: 0 auto;
+    max-width: 768px;
+}
+
+h1, h2{
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 5rem;
+    margin: 0;
+}
+
+.recipe-book-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    margin: 0;
+    padding: 15px;
+}
+
+.recipe-book-header img{
+    max-width: 12%;
+    height: auto;
+}
+
+.search-form{
+    display: flex;  
+    justify-content: space-between;
+    border: 1.5px solid black;
+    border-radius: 12px;
+    background: white;
+}
+
+.search-bar input{
+    flex: 1;
+    border: 0;
+    outline: none;
+    background: transparent;
+    padding: 0.8rem 0;
+}
+
+.search-bar button{
+    border: 0;
+    cursor: pointer;
+    background: transparent;
+    border-left: 2px solid rgb(114, 114, 114);
+    margin-left: 0.6rem;
+    padding-left: 0.6rem;
+    display: grid;
+    place-items: center;
+}
+
+.search-bar img{
+    width: 36px;
+    height: 36px;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+}
+
+.social-media-icon img {
+    width: 36px;
+    height: 36px;
+    margin: 1px;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Larger Device */
+@media screen and (min-width: 768px){
+
+}
+
+
+/* TO-DO:
+
+1. Find a recipe: left padding
+2. hr padding
+3. recipe-card padding 2px solid black
+4. .recipe-name: sky blue
+5. js or css, hide recipe-description
+ */
