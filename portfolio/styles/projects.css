@@ -1,0 +1,519 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
+
+:root {
+  --primary-color: #231c07;
+  --secondary-color: #fffcf6;
+  --accent1-color: #e5eafa;
+  --accent2-color: #66717e;
+  --gray-color: #9f9f9f;
+  --heading-font: "Google Sans Flex", Helvetica, sans-serif;
+  --paragraph-font: "Google Sans Flex", Helvetica, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-family: var(--paragraph-font);
+  font-size: 18px;
+  font-weight: 300;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── Nav ── */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--secondary-color);
+  border-bottom: 1px solid var(--accent1-color);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  line-height: 3em;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 0 2em;
+  color: var(--primary-color);
+  font-family: var(--heading-font);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+/* ── Hero (mirrors home page layout: text left, image right) ── */
+.project-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 3rem 3rem 1rem 3rem;
+}
+
+.project-hero .hero-text h1 {
+  font-family: var(--heading-font);
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.project-hero .hero-photo {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 4px;
+  object-fit: cover;
+  justify-self: center;
+}
+
+/* ── Search bar (below hero, centered) ── */
+.search-below {
+  display: flex;
+  justify-content: center;
+  padding: 0 3rem 1.5rem;
+}
+
+.search-below input {
+  width: 100%;
+  max-width: 520px;
+  padding: 0.65em 1.2em;
+  border: 1px solid var(--primary-color);
+  background: var(--secondary-color);
+  font-family: var(--paragraph-font);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--primary-color);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-below input:focus {
+  border-color: var(--accent2-color);
+}
+
+.search-below input::placeholder {
+  color: var(--gray-color);
+}
+
+/* ── Mode Switch (right-aligned) ── */
+.mode-switch-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 0 3rem 1.5rem;
+}
+
+.switch-label {
+  font-family: var(--heading-font);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--gray-color);
+  transition: color 0.3s, font-weight 0.3s;
+  user-select: none;
+}
+
+.switch-label.active {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Pill toggle track */
+.switch-track {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Sliding thumb — default right = Search */
+.switch-thumb {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  transition: right 0.3s ease, left 0.3s ease;
+}
+
+/* Timeline mode: thumb moves left */
+.switch-track[aria-pressed="true"] .switch-thumb {
+  right: auto;
+  left: 4px;
+}
+
+/* ── Mode Sections ── */
+.mode-section {
+  display: none;
+}
+
+.mode-section.active {
+  display: block;
+}
+
+/* ── Filter Bar (Search mode) ── */
+.filter-bar {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0 3rem 1.5rem;
+  flex-wrap: wrap;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.tag-btn {
+  background: transparent;
+  border: 1px solid var(--accent2-color);
+  border-radius: 20px;
+  padding: 0.3em 1em;
+  font-family: var(--paragraph-font);
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--accent2-color);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.tag-btn:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--accent1-color);
+}
+
+.tag-btn.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.clear-btn {
+  background: transparent;
+  border: 1px solid var(--gray-color);
+  border-radius: 4px;
+  padding: 0.3em 1em;
+  font-family: var(--paragraph-font);
+  font-size: 0.82rem;
+  color: var(--gray-color);
+  cursor: pointer;
+  white-space: nowrap;
+  align-self: flex-start;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.clear-btn:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--accent1-color);
+}
+
+/* ── Projects Grid (Search mode) ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  padding: 0 3rem 3rem;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  color: var(--gray-color);
+  font-size: 0.95rem;
+}
+
+.project-card {
+  background: var(--accent1-color);
+  padding: 1.25rem 1.25rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.project-card h3 {
+  font-family: var(--heading-font);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.project-card p {
+  font-family: var(--paragraph-font);
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--primary-color);
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.card-tag {
+  font-family: var(--paragraph-font);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--accent2-color);
+  border: 1px solid var(--accent2-color);
+  border-radius: 20px;
+  padding: 0.2em 0.8em;
+  display: inline-block;
+}
+
+/* ── Timeline Mode ── */
+.recent-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem 3rem;
+}
+
+.recent-left,
+.recent-right {
+  padding: 1.25rem 1.5rem;
+  font-family: var(--paragraph-font);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.6;
+  text-align: center;
+}
+
+hr {
+  height: 3px;
+  border: none;
+  background: var(--accent1-color);
+  margin: 3rem 3rem;
+}
+
+.timeline-direction {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--accent2-color);
+}
+
+/* ── Timeline Layout ── */
+.timeline {
+  position: relative;
+  padding: 1rem 3rem 3rem;
+}
+
+/* Center vertical line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--primary-color);
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+/* Dot on center line */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  z-index: 1;
+}
+
+/* Odd items: card on left, date on right */
+.timeline-item:nth-child(odd) .project-card {
+  grid-column: 1;
+  margin-right: 2.5rem;
+}
+
+.timeline-item:nth-child(odd) .item-date {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  padding-left: 2.5rem;
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--accent2-color);
+}
+
+/* Even items: date on left, card on right */
+.timeline-item:nth-child(even) .project-card {
+  grid-column: 2;
+  grid-row: 1;
+  margin-left: 2.5rem;
+}
+
+.timeline-item:nth-child(even) .item-date {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 2.5rem;
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--accent2-color);
+}
+
+/* ── Footer ── */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 3rem;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+footer p {
+  font-family: var(--paragraph-font);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--secondary-color);
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.social-icons a:hover {
+  color: var(--accent1-color);
+}
+
+/* ── Responsive (< 768px) ── */
+@media (max-width: 768px) {
+  .project-hero {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .project-hero .hero-photo {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .search-below {
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  .mode-switch-container {
+    justify-content: center;
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  .filter-bar {
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1.5rem 2rem;
+  }
+
+  .recent-banner {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  hr {
+    margin: 0 1.5rem;
+  }
+
+  .timeline {
+    padding: 1rem 1.5rem 2rem;
+  }
+
+  .timeline::before {
+    left: 1.5rem;
+    transform: none;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    padding-left: 2.5rem;
+  }
+
+  .timeline-item::before {
+    left: 1.5rem;
+    top: 1.25rem;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item:nth-child(odd) .project-card,
+  .timeline-item:nth-child(even) .project-card {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+  }
+
+  .timeline-item:nth-child(odd) .item-date,
+  .timeline-item:nth-child(even) .item-date {
+    grid-column: 1;
+    grid-row: 2;
+    justify-content: flex-start;
+    padding: 0.4rem 0 0;
+    text-align: left;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 1.5rem;
+  }
+}
