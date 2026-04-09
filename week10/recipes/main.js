@@ -1,6 +1,3 @@
-// recipes.js - WK10 Recipe Book Part 2
-// Features: display a random recipe on load, search/filter by name/description/tags, sort by name
-
 const recipes = [
 	{
 		author: 'Provo High Culinary Students',
@@ -283,87 +280,127 @@ const recipes = [
 	}
 ];
 
-// ── Utilities ──
 
-function getRandomRecipe() {
-    const index = Math.floor(Math.random() * recipes.length);
-    return recipes[index];
+
+function random(nummber) {
+	return Math.floor(Math.random() * nummber);
 }
 
-function buildStars(rating) {
-    const full = Math.floor(rating);
-    const half = rating % 1 >= 0.5 ? 1 : 0;
-    const empty = 5 - full - half;
-    return '⭐'.repeat(full) + (half ? '½' : '') + '☆'.repeat(empty);
+function getRandomListItem(list) {
+    const countList = list.length;
+    const randomNumber = random(countList);
+    return list[randomNumber];
+}
+function tagsTemplate(tags) {
+	// loop through the tags list and transform the strings to HTML
+	return tags.map(tag => `<p>${tag}</p>`).join('');
 }
 
-function buildRecipeCard(recipe) {
-    const stars = buildStars(recipe.rating);
+function ratingTemplate(rating) {
+	// begin building an html string using the ratings HTML written earlier as a model.
+	let html = `<span
+	class="rating"
+	role="img"
+	aria-label="Rating: ${rating} out of 5 stars"
+	>`;
+	// our ratings are always out of 5, so create a for loop from 1 to 5
+	for (let i = 1; i <= 5; i++) {
+		// check to see if the current index of the loop is less than or equal to our rating
+		if (i <= rating) {
+			// if so then output a filled star
+			html += `<span aria-hidden="true" class="icon-star">⭐</span>`;
+		} else {
+			// else output an empty star
+			html += `<span aria-hidden="true" class="icon-star-empty">☆</span>`;
+		}
+	}
+	// after the loop, add the closing tag to our string
+	html += `</span>`;
+	// return the html string
+	return html;
+}
+
+function recipeTemplate(recipe) {
     return `
-        <div>
-            <img class="recipe-img" src="${recipe.image}" alt="${recipe.name}">
-            <div class="recipe-text">
-                <button>${recipe.tags[0]}</button>
-                <h2 class="recipe-name">${recipe.name}</h2>
-                <span class="rating" role="img" aria-label="Rating: ${recipe.rating} out of 5 stars">
-                    <span aria-hidden="true">${stars}</span>
-                </span>
-                <article class="recipe-description">${recipe.description}</article>
-                <p><strong>Prep:</strong> ${recipe.prepTime} &nbsp;|&nbsp; <strong>Cook:</strong> ${recipe.cookTime} &nbsp;|&nbsp; <strong>Yield:</strong> ${recipe.recipeYield}</p>
+        <img class="recipe-img" src="${recipe.image}" alt="${recipe.name}">
+        <div class="details">
+            <div class="recipe_tags">
+                ${tagsTemplate(recipe.tags)}
             </div>
-        </div>
-    `;
+            <h2>${recipe.name}</h2>
+            <p class="recipe_ratings">
+                ${ratingTemplate(recipe.rating)}
+            </p>
+            <p class="description">${recipe.description}</p>
+        </div>`
 }
 
-// ── Display Random Recipe ──
+const searchForm = document.querySelector('.searchbar');
+const searchInput = document.querySelector('.search-input');
 
-function displayRandomRecipe() {
-    const card = document.querySelector('#random-card');
-    const recipe = getRandomRecipe();
-    card.innerHTML = buildRecipeCard(recipe);
+if (searchForm && searchInput) {
+	searchForm.addEventListener('submit', searchHandler);
 }
 
-// ── Search & Filter ──
+function searchHandler(event) {
+    event.preventDefault();
 
-function searchRecipes(query) {
-    const q = query.toLowerCase().trim();
-    if (!q) return [];
+	// Normalize user input for case-insensitive matching
+	const query = searchInput.value.trim().toLowerCase();
 
-    return recipes
-        .filter(recipe => {
-            const inName = recipe.name.toLowerCase().includes(q);
-            const inDesc = recipe.description.toLowerCase().includes(q);
-            const inTags = recipe.tags.some(tag => tag.toLowerCase().includes(q));
-            return inName || inDesc || inTags;
-        })
-        .sort((a, b) => a.name.localeCompare(b.name));
+    // Filter recipes based on the query
+    const filteredRecipes = filterRecipes(query);
+
+    // Render the filtered recipes
+    renderRecipes(filteredRecipes);
 }
 
-function displayResults(matches) {
-    const section = document.querySelector('#results-section');
-    const list = document.querySelector('#results-list');
+function filterRecipes(query) {
+	if (!query) {
+		return [...recipes].sort((a, b) => a.name.localeCompare(b.name));
+	}
 
-    if (matches.length === 0) {
-        list.innerHTML = '<p>No recipes found. Try a different search term.</p>';
-    } else {
-        list.innerHTML = matches.map(recipe => `
-            <div class="recipe-card">
-                ${buildRecipeCard(recipe)}
-            </div>
-        `).join('');
+    // Use Array.filter() to filter recipes based on the query
+    return recipes.filter(recipe => {
+        // Check if query is found in recipe name, description, tags, or ingredients
+        const isInName = recipe.name.toLowerCase().includes(query);
+        const isInDescription = recipe.description.toLowerCase().includes(query);
+        const isInTags = recipe.tags.some(tag => tag.toLowerCase().includes(query));
+        const isInIngredients = recipe.recipeIngredient.some(ingredient => ingredient.toLowerCase().includes(query));
+
+        // Return recipes that match any of the criteria
+        return isInName || isInDescription || isInTags || isInIngredients;
+    }).sort((a, b) => {
+        // Sort alphabetically by recipe name
+        return a.name.localeCompare(b.name);
+    });
+}
+
+function renderRecipes(recipeList) {
+	// get the element we will output the recipes into
+    const outputElement = document.getElementById('recipe');
+
+    if (!outputElement) {
+        return;
     }
 
-    section.hidden = false;
+	if (!recipeList.length) {
+		outputElement.innerHTML = '<p>No recipes found. Try another keyword.</p>';
+		return;
+	}
+
+	// use the recipeTemplate function to transform our recipe objects into recipe HTML strings
+    const recipeHTML = recipeList.map(recipe => recipeTemplate(recipe)).join('');
+	// Set the HTML strings as the innerHTML of our output element.
+    outputElement.innerHTML = recipeHTML;
+
 }
 
-// ── Event Listeners ──
+function init() {
+  // get a random recipe
+  const recipe = getRandomListItem(recipes)
+  // render the recipe with renderRecipes.
+  renderRecipes([recipe]);
+}
 
-document.querySelector('#searchForm').addEventListener('submit', function (event) {
-    event.preventDefault();
-    const query = document.querySelector('#recipe-name').value;
-    const results = searchRecipes(query);
-    displayResults(results);
-});
-
-// ── Init ──
-displayRandomRecipe();
+init();
