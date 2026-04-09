@@ -57,3 +57,4 @@ gallerySection.addEventListener('click', viewHandler);
 menuButton.addEventListener("click", toggleMenu);
 handleResize();
 window.addEventListener("resize", handleResize);
+

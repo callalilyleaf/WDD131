@@ -3,74 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Book Blog - Reviews and recommendations">
-    <meta name="author" content="Student Name">
-    <title>Book Blog</title>
+    <meta name="author" content="Ivan Cheng" />
+    <meta name="description" content="This is a Book Review Site." />
+    <title>Kids Read For Fun</title>
     <link rel="stylesheet" href="blog.css">
+    <script src="blog.js" defer></script>
 </head>
 <body>
-    <header class="site-header">
-        <h1>The Book Blog</h1>
-        <p class="tagline">Reading adventures, one page at a time</p>
+    <header>
+        <div class="skiptocontent">
+            <a href="#maincontent">skip to main content</a>
+          </div>
+        <h1>Kids Read For Fun</h1>
         <nav>
-            <a href="#">Home</a>
-            <a href="#">Reviews</a>
-            <a href="#">About</a>
+            <ul class="nav">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Archive</a></li>
+                <li><a href="#">Search</a></li>
+            </ul>
         </nav>
     </header>
+    <main id="maincontent">
+        <section class="article-details">
+            <p class="date">July 5, 2022</p>
+            <p>10-14</p>
+            <p>Fantasy</p>
+            <p>****</p>
+        </section>
+        <section class="article-content">
+            <h2>Septimus Heap Book One: Magyk</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/en/5/5f/Magkycover2.jpg" alt="Book cover for Septimus Heap 1">
+            <p>If you enjoy stories about seventh sons of seventh sons and magyk this is the book for you. <a href="">Read More...</a></p>
+        </section>
+        </div>
 
-    <main class="blog-layout">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <h2>Categories</h2>
-            <ul>
-                <li><a href="#">Fantasy</a></li>
-                <li><a href="#">Science Fiction</a></li>
-                <li><a href="#">Mystery</a></li>
-                <li><a href="#">Non-Fiction</a></li>
-            </ul>
-
-            <h2>Recent Posts</h2>
-            <ul>
-                <li><a href="#">Septimus Heap: Magyk</a></li>
-                <li><a href="#">The Hobbit</a></li>
-                <li><a href="#">Ender's Game</a></li>
-            </ul>
-        </aside>
-
-        <!-- Main content area -->
-        <section class="posts">
-            <article class="book-card">
-                <div class="book-cover">
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/en/5/5f/Magkycover2.jpg"
-                        alt="Septimus Heap Book One: Magyk cover"
-                    >
-                </div>
-                <div class="book-info">
-                    <span class="badge">Fantasy</span>
-                    <span class="badge">Ages 9–12</span>
-                    <h2>Septimus Heap Book One: Magyk</h2>
-                    <p class="meta">Posted: January 15, 2024</p>
-                    <div class="rating" role="img" aria-label="Rating: 4 out of 5 stars">
-                        <span aria-hidden="true">⭐⭐⭐⭐☆</span>
-                    </div>
-                    <p class="description">
-                        On the night he is born, Septimus Heap—the seventh son of the seventh son—is
-                        pronounced dead by the midwife and swept away. That same night, the baby's
-                        father, Silas Heap, comes across an abandoned child in the snow and brings her
-                        home. The girl is ExtraOrdinary Wizard Marcia Overstrand's apprentice and is
-                        destined for great things. And as for Septimus Heap… well, that's where it
-                        all begins.
-                    </p>
-                    <a class="read-more" href="#">Read Review &rarr;</a>
-                </div>
-            </article>
+        <section class="article-details">
+            <p class="date">December 12, 2021</p>
+            <p>12-16</p>
+            <p>Fantasy</p>
+            <p>⭐⭐⭐⭐</p>
+        </section>
+        <section class="article-content">
+            <h2>Magnus Chase Book One: Sword of Summer</h2>
+            <img src="https://books.google.com/books/content/images/frontcover/xWuyBAAAQBAJ?fife=w300" alt="Book cover for Magnus Chase 1">
+            <p>The anticipated new novel by Rick Riordan. After Greek mythology (Percy Jackson), Greek/Roman (Heroes of Olympus), and Egyptian (Kane Chronicles), Rick decides to try his hand with Norse Mythology, and the end result is good. <a href="">Read More...</a></p>
+        </section>
+        <section class="filter">
+            <p>Filter form will go here</p>
         </section>
     </main>
-
-    <footer class="site-footer">
-        <p>&copy; 2024 The Book Blog. All rights reserved.</p>
-    </footer>
 </body>
 </html>
