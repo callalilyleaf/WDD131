@@ -1,6 +1,3 @@
-// dom-theme.js - WK2b Ponder: Computational Thinking
-// Concepts: functions, event listeners, conditionals (if/else if/else)
-
 let selectElem = document.querySelector('#theme-select');
 let pageContent = document.querySelector('body');
 
