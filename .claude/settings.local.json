@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:wddbyui.github.io)"
+      "WebFetch(domain:wddbyui.github.io)",
+      "Bash(curl -s \"https://wddbyui.github.io/wdd131/prove/prove_wk5.html\")",
+      "WebSearch",
+      "Bash(curl -s https://wddbyui.github.io/wdd131/prove/prove_wk10.html)",
+      "Bash(curl -s \"https://wddbyui.github.io/wdd131/prove/prove_wk6.html\")",
+      "Bash(curl -s \"https://wddbyui.github.io/wdd131/prove/prove_wk7.html\")",
+      "Bash(curl -s https://wddbyui.github.io/wdd131/ponder/ponder_wk1b.html)",
+      "Bash(curl -s https://wddbyui.github.io/wdd131/ponder/ponder_wk2a.html)",
+      "Bash(curl -s https://wddbyui.github.io/wdd131/ponder/ponder_wk2b.html)"
     ]
   }
 }

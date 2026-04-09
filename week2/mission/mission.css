@@ -1,20 +1,18 @@
-/* mission.css - WK2 Mission Statement with Dark/Light Mode */
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Default (light) theme variables */
+/* Default (light) theme */
 :root {
-    --bg-color: #f5f5f5;
+    --bg-color: #ffffff;
     --text-color: #1a1a1a;
     --header-bg: #006EB6;
     --card-bg: #ffffff;
-    --accent: #006EB6;
+    --accent: #000000;
     --accent-dark: #004a7c;
-    --list-bg: #f0f7ff;
+    --list-bg: #ffffff;
     --footer-color: #666;
 }
 
@@ -28,25 +26,25 @@ body {
 
 /* Dark theme overrides */
 body.dark {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --header-bg: #1e1e1e;
-    --card-bg: #1e1e1e;
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --header-bg: #000000;
+    --card-bg: #000000;
     --accent: #5aabf5;
     --accent-dark: #82c4ff;
-    --list-bg: #2a2a2a;
+    --list-bg: #000000;
     --footer-color: #aaa;
 }
 
 /* Light theme overrides */
 body.light {
     --bg-color: #ffffff;
-    --text-color: #111111;
+    --text-color: #000000;
     --header-bg: #006EB6;
-    --card-bg: #f9f9f9;
+    --card-bg: #ffffff;
     --accent: #006EB6;
     --accent-dark: #004a7c;
-    --list-bg: #e8f4ff;
+    --list-bg: #ffffff;
     --footer-color: #555;
 }
 
@@ -61,6 +59,12 @@ header {
 
 #byui-logo {
     max-width: 200px;
+}
+
+#schoolname{
+    text-align: center;
+    border-bottom: 1px solid #a88c2e;
+    color: #006EB6;
 }
 
 .theme-selector {
@@ -89,15 +93,14 @@ main {
     padding: 2rem;
     background-color: var(--card-bg);
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s;
 }
 
 h1 {
+    text-align: center;
     font-size: 2rem;
-    color: var(--accent);
+    color: var(--text-color);
     margin-bottom: 1rem;
-    border-bottom: 2px solid var(--accent);
     padding-bottom: 0.5rem;
 }
 
@@ -112,16 +115,18 @@ p {
     margin-bottom: 1rem;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+ol {
+    margin-left: 2rem;
+    padding-left: 1rem;
+    list-style-position: outside;
 }
 
-ul li {
-    padding: 0.6rem 1rem;
-    border-left: 4px solid var(--accent);
-    margin-bottom: 0.75rem;
-    background-color: var(--list-bg);
+ol li {
+    padding: 0.4rem 0 0;
+    margin: 0;
+    width: auto;
+    background-color: var(--bg-color);
+    padding-left: 1rem;
     transition: background-color 0.3s;
 }
 
