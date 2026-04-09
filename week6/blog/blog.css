@@ -1,0 +1,190 @@
+/* blog.css - WK6 Build a Blog Part 2 */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f4ef;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ── Header ── */
+.site-header {
+    background-color: #3d2b1f;
+    color: white;
+    padding: 1.5rem 2rem;
+    text-align: center;
+}
+
+.site-header h1 {
+    font-size: 2.2rem;
+    font-family: Georgia, serif;
+}
+
+.site-header .tagline {
+    font-size: 1rem;
+    color: #d4b896;
+    margin: 0.25rem 0 1rem;
+}
+
+.site-header nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.site-header nav a {
+    color: #f0e0c8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.site-header nav a:hover {
+    color: white;
+}
+
+/* ── Grid Layout ── */
+.blog-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+    .blog-layout {
+        grid-template-columns: 240px 1fr;
+    }
+}
+
+/* ── Sidebar ── */
+.sidebar {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    align-self: start;
+}
+
+.sidebar h2 {
+    font-size: 1.1rem;
+    color: #3d2b1f;
+    margin-bottom: 0.75rem;
+    border-bottom: 2px solid #e8d8c4;
+    padding-bottom: 0.4rem;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 0.4rem;
+}
+
+.sidebar ul li a {
+    color: #7a5230;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* ── Posts Section ── */
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ── Book Card ── */
+.book-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+}
+
+@media (min-width: 500px) {
+    .book-card {
+        grid-template-columns: 160px 1fr;
+    }
+}
+
+.book-cover img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.badge {
+    display: inline-block;
+    background-color: #e8d8c4;
+    color: #5a3820;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    margin-right: 0.3rem;
+}
+
+.book-info h2 {
+    font-size: 1.5rem;
+    color: #3d2b1f;
+    font-family: Georgia, serif;
+}
+
+.meta {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.rating {
+    font-size: 1.1rem;
+}
+
+.description {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.read-more {
+    display: inline-block;
+    color: #7a5230;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* ── Footer ── */
+.site-footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #3d2b1f;
+    color: #d4b896;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}

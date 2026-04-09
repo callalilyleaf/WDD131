@@ -1,0 +1,93 @@
+/* dom.css - WK2a Ponder: DOM Basics */
+
+body {
+    background-color: #ddd;
+    font-size: 20px;
+}
+
+#content {
+    max-width: 60%;
+    margin: 40px auto;
+    border: 1px solid darkgrey;
+    padding: 50px;
+    background: #fff;
+}
+
+p {
+    color: #035f9c;
+    font-size: 1.3em;
+}
+
+hr {
+    height: 3px;
+    background-color: #035f9c;
+    margin: 30px auto;
+    width: 80%;
+}
+
+h1, h2, p {
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+}
+
+#topics {
+    width: 55%;
+    margin: 0 auto;
+    line-height: 1.5em;
+}
+
+.list {
+    list-style-type: none;
+}
+
+/* Dropdown area */
+#selector-area {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9em;
+    color: #333;
+}
+
+#selector-area label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+#webdevlist {
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
+    border: 2px solid #035f9c;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Output box */
+.output-box {
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    border: 2px solid #035f9c;
+    border-radius: 8px;
+    background-color: #e8f4ff;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.output-box p {
+    font-size: 1rem;
+    color: #035f9c;
+}
+
+/* Highlighted state applied via JS */
+.highlight {
+    background-color: #035f9c;
+}
+
+.highlight p {
+    color: #fff;
+}

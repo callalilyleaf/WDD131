@@ -1,0 +1,88 @@
+/* mission.css - WK1 Mission Statement */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    line-height: 1.7;
+}
+
+header {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+}
+
+#byui-logo {
+    max-width: 200px;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #000000;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+h2 {
+    text-align: left;
+    font-size: 1.4rem;
+    color: #000000;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-style: italic;
+    margin-left: 1rem;
+}
+
+p {
+    margin: 1rem auto;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+#schoolname{
+    text-align: center;
+    border-bottom: 1px solid #a88c2e;
+    color: #006EB6;
+}
+
+ol {
+    margin-left: 2rem;
+    padding-left: 1rem;
+    list-style-position: outside;
+}
+
+ol li {
+    padding: 0.4rem 0 0;
+    margin: 0;
+    width: auto;
+    background-color: #ffffff;
+    padding-left: 1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}

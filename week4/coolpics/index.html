@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cool Pics - A responsive image gallery">
+    <meta name="author" content="Student Name">
+    <title>Cool Pics</title>
+    <link rel="stylesheet" href="coolpics.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="nav-brand">
+                <h1>Cool Pics</h1>
+            </div>
+            <!-- Hamburger button for mobile -->
+            <button id="menu-btn" class="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                &#9776;
+            </button>
+            <ul id="nav-menu" class="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Gallery -->
+    <main>
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <figure>
+                <img
+                    class="gallery-img"
+                    src="https://wddbyui.github.io/wdd131/images/norris-full.jpg"
+                    alt="Norris Geyser Basin in Yellowstone"
+                    data-full="https://wddbyui.github.io/wdd131/images/norris-full.jpg"
+                >
+                <figcaption>Norris Geyser Basin</figcaption>
+            </figure>
+            <figure>
+                <img
+                    class="gallery-img"
+                    src="https://wddbyui.github.io/wdd131/images/norris-full.jpg"
+                    alt="Mountain landscape"
+                    data-full="https://wddbyui.github.io/wdd131/images/norris-full.jpg"
+                >
+                <figcaption>Mountain View</figcaption>
+            </figure>
+            <figure>
+                <img
+                    class="gallery-img"
+                    src="https://wddbyui.github.io/wdd131/images/norris-full.jpg"
+                    alt="Nature scene"
+                    data-full="https://wddbyui.github.io/wdd131/images/norris-full.jpg"
+                >
+                <figcaption>Nature Scene</figcaption>
+            </figure>
+            <figure>
+                <img
+                    class="gallery-img"
+                    src="https://wddbyui.github.io/wdd131/images/norris-full.jpg"
+                    alt="Landscape photo"
+                    data-full="https://wddbyui.github.io/wdd131/images/norris-full.jpg"
+                >
+                <figcaption>Landscape</figcaption>
+            </figure>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <div class="modal-content">
+            <button id="modal-close" class="modal-close" aria-label="Close image viewer">&times;</button>
+            <img id="modal-img" src="" alt="">
+        </div>
+    </div>
+
+    <script src="coolpics.js"></script>
+</body>
+</html>

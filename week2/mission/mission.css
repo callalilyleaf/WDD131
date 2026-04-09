@@ -1,0 +1,134 @@
+/* mission.css - WK2 Mission Statement with Dark/Light Mode */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Default (light) theme variables */
+:root {
+    --bg-color: #f5f5f5;
+    --text-color: #1a1a1a;
+    --header-bg: #006EB6;
+    --card-bg: #ffffff;
+    --accent: #006EB6;
+    --accent-dark: #004a7c;
+    --list-bg: #f0f7ff;
+    --footer-color: #666;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark theme overrides */
+body.dark {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --header-bg: #1e1e1e;
+    --card-bg: #1e1e1e;
+    --accent: #5aabf5;
+    --accent-dark: #82c4ff;
+    --list-bg: #2a2a2a;
+    --footer-color: #aaa;
+}
+
+/* Light theme overrides */
+body.light {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --header-bg: #006EB6;
+    --card-bg: #f9f9f9;
+    --accent: #006EB6;
+    --accent-dark: #004a7c;
+    --list-bg: #e8f4ff;
+    --footer-color: #555;
+}
+
+header {
+    background-color: var(--header-bg);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s;
+}
+
+#byui-logo {
+    max-width: 200px;
+}
+
+.theme-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+}
+
+.theme-selector label {
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+}
+
+.theme-selector select {
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+h1 {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+    color: var(--accent-dark);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 0.6rem 1rem;
+    border-left: 4px solid var(--accent);
+    margin-bottom: 0.75rem;
+    background-color: var(--list-bg);
+    transition: background-color 0.3s;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--footer-color);
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}

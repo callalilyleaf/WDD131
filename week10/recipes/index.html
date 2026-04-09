@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeBook</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="RecipeBook">
+    <meta property="og:description" content="Search and discover delicious recipes">
+    <meta property="og:url" content="Your URL">
+    <meta property="og:image" content="images/social-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RecipeBook">
+    <meta name="twitter:description" content="Search and discover delicious recipes">
+    <meta name="twitter:image" content="images/social-preview.png">
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon-180x180.png" sizes="180x180">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="recipe-book-header">
+            <img src="images/recipe-book.png" alt="Recipe Book icon">
+            <h1>RecipeBook</h1>
+        </div>
+        <div class="search-bar">
+            <form class="search-form" role="search" id="searchForm">
+                <input
+                    type="search"
+                    id="recipe-name"
+                    name="q"
+                    placeholder="Search recipes..."
+                    aria-label="Search for a recipe"
+                >
+                <button type="submit" aria-label="Search">
+                    <img src="images/search.svg" alt="">
+                </button>
+            </form>
+        </div>
+    </header>
+    <hr>
+
+    <!-- Random recipe of the day -->
+    <section id="random-recipe" class="random-recipe-section">
+        <h2>Recipe of the Day</h2>
+        <div id="random-card" class="recipe-card">
+            <!-- Populated by JS -->
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- Search results -->
+    <main id="results-section" class="results-section" hidden>
+        <h2>Search Results</h2>
+        <div id="results-list" class="results-list">
+            <!-- Populated by JS -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="social">
+            <!-- Social media icons provided under CC from https://www.iconfinder.com/AlfredoCreates -->
+            <a class="social-media-icon" href="#"><img src="images/instagram_icon.svg" alt="Instagram"></a>
+            <a class="social-media-icon" href="#"><img src="images/youtube_icon.svg" alt="YouTube"></a>
+            <a class="social-media-icon" href="#"><img src="images/pinterest_icon.svg" alt="Pinterest"></a>
+        </div>
+        <a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons">
+            Recipe icons created by Freepik - Flaticon
+        </a>
+    </footer>
+
+    <script src="recipes.js"></script>
+</body>
+</html>

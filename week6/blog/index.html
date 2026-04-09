@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book Blog - Reviews and recommendations">
+    <meta name="author" content="Student Name">
+    <title>Book Blog</title>
+    <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+    <header class="site-header">
+        <h1>The Book Blog</h1>
+        <p class="tagline">Reading adventures, one page at a time</p>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Reviews</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
+
+    <main class="blog-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>Categories</h2>
+            <ul>
+                <li><a href="#">Fantasy</a></li>
+                <li><a href="#">Science Fiction</a></li>
+                <li><a href="#">Mystery</a></li>
+                <li><a href="#">Non-Fiction</a></li>
+            </ul>
+        </aside>
+
+        <!-- Articles rendered dynamically by blog.js -->
+        <section id="posts" class="posts">
+            <!-- Book cards injected here by JavaScript -->
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 The Book Blog. All rights reserved.</p>
+    </footer>
+
+    <script src="blog.js"></script>
+</body>
+</html>
