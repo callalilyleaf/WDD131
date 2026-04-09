@@ -1,51 +1,59 @@
-// coolpics.js - WK4 Cool Pics Part 2
-
-// ── Mobile Menu Toggle ──
-const menuBtn = document.querySelector('#menu-btn');
-const navMenu = document.querySelector('#nav-menu');
-
-menuBtn.addEventListener('click', function () {
-    const isOpen = navMenu.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', isOpen.toString());
-});
-
-// ── Modal ──
-const modal = document.querySelector('#modal');
-const modalImg = document.querySelector('#modal-img');
-const modalClose = document.querySelector('#modal-close');
-
-// Open modal when a gallery image is clicked
-document.querySelector('.gallery').addEventListener('click', function (event) {
-    const clickedImg = event.target.closest('.gallery-img');
-    if (!clickedImg) return;
-
-    const fullSrc = clickedImg.getAttribute('data-full');
-    const altText = clickedImg.getAttribute('alt');
-
-    modalImg.src = fullSrc;
-    modalImg.alt = altText;
-    modal.classList.add('open');
-    modalClose.focus();
-});
-
-// Close modal with the X button
-modalClose.addEventListener('click', closeModal);
-
-// Close modal by clicking the backdrop (outside the image)
-modal.addEventListener('click', function (event) {
-    if (event.target === modal) {
-        closeModal();
-    }
-});
-
-// Close modal with the Escape key
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape' && modal.classList.contains('open')) {
-        closeModal();
-    }
-});
-
-function closeModal() {
-    modal.classList.remove('open');
-    modalImg.src = '';
+const menuButton = document.querySelector(".menu-button");
+function toggleMenu() {
+    const menu = document.querySelector(".menu");
+    menu.classList.toggle("hide");
 }
+
+function handleResize() {
+    const menu = document.querySelector(".menu");
+    if (window.innerWidth > 700) {
+        menu.classList.remove("hide");
+    }
+    else {
+        menu.classList.add("hide")
+    }
+}
+
+const img = document.querySelector(".gallery-img") 
+
+function viewerTemplate(pic, alt) {
+    return `<div class="viewer">
+      <button class="close-viewer">X</button>
+      <img class="big-img" src="${pic}" alt="${alt}"></div>`;
+}
+
+function viewHandler(event) {
+    // Get the clicked image element
+    const clickedImage = event.target;
+  
+    // Get the src attribute of the clicked image and split it on the "-"
+    const imageSrc = clickedImage.src;
+    const imageParts = imageSrc.split('-');
+  
+    // Construct the new image file name by adding "-full.jpeg" to the first part of the array
+    const fullImageSrc = `${imageParts[0]}-full.jpg`;
+    console.log("fullImageSrc")
+  
+    // Get the alt text of the clicked image
+    const imageAlt = clickedImage.alt;
+  
+    // Insert the viewerTemplate into the top of the body element
+    document.body.insertAdjacentHTML('beforebegin', viewerTemplate(fullImageSrc, imageAlt));
+  
+    // Add a listener to the close button (X) that calls the closeViewer function when clicked
+    const closeButton = document.querySelector('.close-viewer');
+    closeButton.addEventListener('click', closeViewer);
+}
+  
+function closeViewer() {
+    const viewer = document.querySelector('.viewer');
+    viewer.remove();
+}
+
+const gallerySection = document.querySelector('.gallery');
+
+gallerySection.addEventListener('click', viewHandler);
+
+menuButton.addEventListener("click", toggleMenu);
+handleResize();
+window.addEventListener("resize", handleResize);

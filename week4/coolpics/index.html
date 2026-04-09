@@ -3,100 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cool Pics - A responsive image gallery">
-    <meta name="author" content="Student Name">
-    <title>Cool Pics</title>
+    <meta name="author" content="Ivan Cheng" />
+    <meta name="description" content="This is a photography gallery website." />
+    <title>Cool Pictures</title>
     <link rel="stylesheet" href="coolpics.css">
+    <script src="coolpics.js" defer></script>
 </head>
 <body>
-    <!-- Navigation -->
     <header>
-        <nav>
-            <div class="nav-brand">
-                <h1>Cool Pics</h1>
-            </div>
-            <!-- Hamburger button for mobile -->
-            <button id="menu-btn" class="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
-                &#9776;
-            </button>
-            <ul id="nav-menu" class="nav-menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+        <h1>Cool Pics 📷</h1>
+        <button class="menu-button">Menu</button>
+        <nav class="menu">
+            <a href="index.html">Home</a>
+            <a href="">People</a>
+            <a href="">Place</a>
+            <a href="">About</a>
+            <a href="">Contact</a>
         </nav>
     </header>
-
-    <!-- Gallery -->
     <main>
-        <h2>Gallery</h2>
-        <div class="gallery">
+        <h2>Current Work</h2>
+        <section class="gallery">
             <figure>
-                <img
-                    class="gallery-img"
-                    src="../gallery/images/images/book-sm.jpg"
-                    alt="person reading a book"
-                    data-full="../gallery/images/images/book-full.jpg"
-                >
-                <figcaption>Reading</figcaption>
+                <img class="gallery-img" src="norris-sm.jpg" alt="picture">
             </figure>
             <figure>
-                <img
-                    class="gallery-img"
-                    src="../gallery/images/images/couch-sm.jpg"
-                    alt="person sitting on a couch with a phone"
-                    data-full="../gallery/images/images/couch-full.jpg"
-                >
-                <figcaption>On the Couch</figcaption>
+                <img class="gallery-img" src="norris-sm.jpg" alt="picture">
             </figure>
             <figure>
-                <img
-                    class="gallery-img"
-                    src="../gallery/images/images/desk-sm.jpg"
-                    alt="a work desktop"
-                    data-full="../gallery/images/images/desk-full.jpg"
-                >
-                <figcaption>At the Desk</figcaption>
+                <img class="gallery-img" src="norris-sm.jpg" alt="picture">
             </figure>
             <figure>
-                <img
-                    class="gallery-img"
-                    src="../gallery/images/images/keyboard-sm.jpg"
-                    alt="person typing on a keyboard"
-                    data-full="../gallery/images/images/keyboard-full.jpg"
-                >
-                <figcaption>Keyboard</figcaption>
+                <img class="gallery-img" src="norris-sm.jpg" alt="picture">
             </figure>
             <figure>
-                <img
-                    class="gallery-img"
-                    src="../gallery/images/images/phone-sm.jpg"
-                    alt="person looking at a phone"
-                    data-full="../gallery/images/images/phone-full.jpg"
-                >
-                <figcaption>On the Phone</figcaption>
+                <img class="gallery-img" src="norris-sm.jpg" alt="picture">
             </figure>
             <figure>
-                <img
-                    class="gallery-img"
-                    src="../gallery/images/images/sit-sm.jpg"
-                    alt="person sitting on a couch"
-                    data-full="../gallery/images/images/sit-full.jpg"
-                >
-                <figcaption>Sitting</figcaption>
+                <img class="gallery-img" src="norris-sm.jpg" alt="picture">
             </figure>
-        </div>
+            <figure>
+                <img class="gallery-img" src="norris-sm.jpg" alt="picture">
+            </figure>
+            <figure>
+                <img class="gallery-img" src="norris-sm.jpg" alt="picture">
+            </figure>
+            <figure>
+                <img class="gallery-img" src="norris-sm.jpg" alt="picture">
+            </figure>
+        </section>
     </main>
-
-    <!-- Modal -->
-    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Image viewer">
-        <div class="modal-content">
-            <button id="modal-close" class="modal-close" aria-label="Close image viewer">&times;</button>
-            <img id="modal-img" src="" alt="">
-        </div>
-    </div>
-
-    <script src="coolpics.js"></script>
+    <footer>
+        Ivan Cheng © 2026 Not a real site 😀.
+    </footer>
 </body>
 </html>
+
