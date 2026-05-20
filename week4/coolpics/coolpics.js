@@ -6,7 +6,7 @@ function toggleMenu() {
 
 function handleResize() {
     const menu = document.querySelector(".menu");
-    if (window.innerWidth > 700) {
+    if (window.innerWidth > 1000) {
         menu.classList.remove("hide");
     }
     else {
