@@ -64,7 +64,7 @@ img{
 
 main{
     display: grid;
-    grid-template-columns: 280px 500px 1fr;
+    grid-template-columns: 280px 1fr;
     gap: 30px;
     margin-top: 40px;
 }
@@ -102,4 +102,14 @@ main{
 }
 .skiptocontent a:focus {
     top: 0;
+}
+
+footer{
+    border-top: #EFC69B solid 2px;
+    border-bottom: #EFC69B solid 2px;
+    padding-top: 8px;
+    padding-bottom: 8px; 
+    margin-bottom: 10px;
+    padding-right: 100px;
+    text-align: center;
 }
