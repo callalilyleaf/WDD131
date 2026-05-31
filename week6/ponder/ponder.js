@@ -22,6 +22,11 @@ function convert(grade) {
 }
 
 const words = ['watermelon', 'peach', 'apple', 'tomato', 'grape'];
+
+console.log(`We have some fruits here: `)
+words.forEach(fruit => {
+    console.log(fruit)
+})
           
 const students = [
     {last: 'Andrus', first: 'Aaron', grade: 'A'},
