@@ -1,18 +1,19 @@
 const form = document.querySelector("#fsyForm");
 const travelRange = document.querySelector("#travelRange");
-// const travelValues = Array.from(travelRange.options).map(option => option.value).filter(value => value !== "");
 const notesContainer = document.querySelector("#notesContainer");
 const notes = document.querySelector("#notes");
 const output = document.querySelector("#output");
 const campusBoxes = document.querySelectorAll('input[name="campus"]');
 
-
-
 function updateNotesField() {
   const value = travelRange.value;
-
-  // Show the travel notes on the form if they are choosing many campuses and require it
-  
+  if (value === "many"){
+    notesContainer.hidden = false;
+    notes.required = true;
+  } else{
+    notesContainer.hidden = true;
+    notes.required = false; 
+  }
 }
 
 travelRange.addEventListener("change", updateNotesField);
@@ -25,15 +26,6 @@ function isPastDate(value) {
   const chosen = new Date(value);
   return chosen < today;
 }
-
-
-function isCampusSelectedValid(value) {
-  return value.length >= 2;
-}
-
-// function isTravelRangeSelected(value) {
-//   return value != "Choose one";
-// }
 
 function getSelectedCampuses() {
   //.from converts a NodeList into a real array, so then you can use .filter and .map
@@ -55,23 +47,30 @@ form.addEventListener("submit", function (event) {
   const note = form.notes.value.trim();
 
   // Validate the input
-  if (isPastDate(availableDate)) {
-    output.textContent = "Please choose a later date.";
-    return;
-  }
-  
   // Let the user know to select at least one campus
-  if (travelRange) {
-    output.textContent = "Please select at least 1 campus.";
+  if (selectedCampuses.length == 0){
+    output.textContent = "Please select at least one campus";
     return;
   }
   
   // Let the user know if they choose many campuses but didn't put a note that they need to add a note
+  if (type === "many" && notes === ""){
+    output.textContent = "Please add a note if you want to choose multiple campuses";
+    return;
+  }
   
   //Let the user know if they choose many campus but only had one campus selected that they need to choose at least two campuses
+  // selectedCampuses is an Array. Use .length to access its count
+  if (type === "many" && selectedCampuses.length < 2){
+    output.textContent = "Please check at least 2 campuses you'd like to serve at";
+    return;
+  }
   
 
-  
+  if (isPastDate(availableDate)) {
+    output.textContent = "Please choose a later date.";
+    return;
+  }
 
   output.innerHTML = `
   <h2>Preference Submitted</h2>
