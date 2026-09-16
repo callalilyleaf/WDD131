@@ -7,6 +7,8 @@ const two = '2';
 let course = "CSE131"; //global scope
 if (true) {
     let student = "John";
+    console.log(`The ratio of a circle\'s circumference to its diameter is Pi. It\'s approximately ${PI}`);
+    console.log()
     console.log(course);  //works just fine, course is global
     console.log(student); //works just fine, it's being accessed within the block
 }
